@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pinnacle Securities Research provides securities research, options hedging research, market education and risk-focused research services.">
+  <title>Pinnacle Securities Research | Research &amp; Risk Management</title>
+  <style>
+    :root {
+      --navy: #10243a;
+      --blue: #1769aa;
+      --gold: #d9a441;
+      --light: #f3f6fa;
+      --text: #263547;
+      --muted: #65758a;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: var(--white);
+    }
+    a { color: var(--blue); }
+    .container { width: min(1120px, 92%); margin: auto; }
+    header { background: var(--navy); color: white; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 18px 0;
+    }
+    .brand { font-weight: 800; letter-spacing: 1px; }
+    nav a { color: white; text-decoration: none; margin-left: 16px; font-size: 14px; }
+    .hero {
+      padding: 85px 0 90px;
+      background: linear-gradient(135deg, #10243a, #1c527c);
+      color: white;
+    }
+    .hero h1 { font-size: clamp(34px, 5vw, 56px); line-height: 1.15; margin: 12px 0; }
+    .hero p { max-width: 720px; color: #e3edf7; font-size: 18px; }
+    .eyebrow { color: var(--gold); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    .button {
+      display: inline-block;
+      padding: 12px 19px;
+      border-radius: 6px;
+      background: var(--gold);
+      color: #17263a;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 10px 8px 0 0;
+    }
+    .button.secondary { background: transparent; border: 1px solid white; color: white; }
+    section { padding: 66px 0; }
+    section.soft { background: var(--light); }
+    h2 { color: var(--navy); font-size: 30px; margin-top: 0; }
+    h3 { color: var(--navy); }
+    .intro { color: var(--muted); max-width: 760px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+    .card {
+      background: white;
+      padding: 23px;
+      border-radius: 12px;
+      border: 1px solid #e1e7ef;
+      box-shadow: 0 5px 18px rgba(16,36,58,.04);
+    }
+    .card p { color: var(--muted); }
+    .tag {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 4px;
+      background: #e9f2fb;
+      color: #174e7a;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .profile {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+    .credential {
+      background: white;
+      padding: 22px;
+      border-left: 4px solid var(--gold);
+      border-radius: 5px;
+    }
+    .credential ul { padding-left: 20px; }
+    .calculator {
+      background: white;
+      padding: 24px;
+      border: 1px solid #dfe6ef;
+      border-radius: 12px;
+      max-width: 760px;
+      margin-top: 25px;
+    }
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    label { display: block; font-weight: bold; font-size: 14px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 11px;
+      margin-top: 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 5px;
+      font: inherit;
+    }
+    .calc-button {
+      margin-top: 18px;
+      padding: 12px 18px;
+      background: var(--blue);
+      color: white;
+      border: 0;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #result {
+      margin-top: 18px;
+      padding: 15px;
+      background: var(--light);
+      border-radius: 6px;
+      overflow-wrap: anywhere;
+    }
+    .notice {
+      border-left: 4px solid var(--gold);
+      background: #fff8e8;
+      padding: 15px 18px;
+      border-radius: 4px;
+    }
+    footer { background: var(--navy); color: #e3edf7; padding: 30px 0; }
+    footer a { color: white; }
+    .small { font-size: 13px; color: var(--muted); }
+    footer .small { color: #cbd5e1; }
+    @media (max-width: 760px) {
+      .cards, .profile, .fields { grid-template-columns: 1fr; }
+      nav { align-items: flex-start; }
+      nav a { margin: 0 12px 0 0; display: inline-block; }
+      .hero { padding: 58px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">PINNACLE SECURITIES RESEARCH</div>
+        <div>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#learning">Coaching</a>
+          <a href="#calculator">Calculator</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Research · Risk Management · Education</div>
+        <h1>Market research with a focus on risk.</h1>
+        <p>
+          Independent securities research, options hedging research and market
+          education built around structured analysis, defined risk parameters
+          and informed decision-making.
+        </p>
+        <a class="button" href="#services">Explore Services</a>
+        <a class="button secondary" href="#contact">Contact</a>
+        <p class="small">
+          No assured returns. Market investments and derivatives involve risk.
+        </p>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container profile">
+        <div>
+          <div class="eyebrow">Professional Profile</div>
+          <h2>Newton Kumar Dhar</h2>
+          <p>
+            Research and market education focused on securities analysis,
+            derivatives, options hedging and risk management. The objective is
+            to help market participants understand research, strategy structure
+            and risk before making their own decisions.
+          </p>
+          <p>
+            The emphasis is on disciplined analysis and transparent risk
+            parameters—not promises about future performance.
+          </p>
+        </div>
+        <div class="credential">
+          <h3>Qualifications &amp; Registration</h3>
+          <ul>
+            <li>FCS</li>
+            <li>Fellow Member, CISI London</li>
+            <li>MCOP — Multi Commodity Exchange Certified Option Professional</li>
+            <li>SEBI Registered Research Analyst</li>
+            <li>Registration No.: INH000010593</li>
+          </ul>
+          <p class="small">
+            Registration details and permitted services should be independently
+            verified through the relevant official records.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="soft">
+      <div class="container">
+        <div class="eyebrow">Research Services</div>
+        <h2>Research built around a process</h2>
+        <p class="intro">
+          Research scope, delivery, fees and eligibility are subject to the
+          applicable terms, regulatory requirements and client onboarding.
+        </p>
+        <div class="cards">
+          <article class="card">
+            <span class="tag">Research</span>
+            <h3>Long-Term Research</h3>
+            <p>Research-led analysis of securities for investors with a longer investment horizon.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Research</span>
+            <h3>Swing-Trading Research</h3>
+            <p>Structured market research with relevant levels, assumptions and risk considerations.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Derivatives</span>
+            <h3>Options Hedging Research</h3>
+            <p>Analysis of options structures, hedging approaches, payoff profiles and key risks.</p>
+          </article>
+          <article class="card">
+            <span class="tag">F&amp;O</span>
+            <h3>F&amp;O Research Subscription</h3>
+            <p>Research reports and derivatives setups with stated risk parameters, subject to applicable requirements.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Education</span>
+            <h3>Live F&amp;O Coaching</h3>
+            <p>Concept-based sessions covering derivatives, strategy mechanics and risk awareness.</p>
+          </article>
+          <article class="card">
+            <span class="tag">Education</span>
+            <h3>Recorded Learning</h3>
+            <p>Recorded F&amp;O lessons and directional candlestick-chart trading education.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="learning">
+      <div class="container">
+        <div class="eyebrow">Market Education</div>
+        <h2>Understand the setup before the trade</h2>
+        <p class="intro">
+          Learning topics may include futures and options fundamentals, option
+          payoff, strategy construction, directional candlestick-chart analysis,
+          position sizing and risk management.
+        </p>
+        <div class="cards">
+          <article class="card">
+            <h3>Live Coaching</h3>
+            <p>Interactive learning sessions for understanding market concepts and strategy risks.</p>
+          </article>
+          <article class="card">
+            <h3>Recorded Courses</h3>
+            <p>Study lessons at your own pace and revisit important concepts.</p>
+          </article>
+          <article class="card">
+            <h3>Candlestick Lessons</h3>
+            <p>Learn directional chart setups, context, invalidation levels and risk considerations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="subscription" class="soft">
+      <div class="container">
+        <div class="eyebrow">Subscriber Research</div>
+        <h2>F&amp;O research and setup updates</h2>
+        <p class="intro">
+          Subject to applicable regulatory requirements and onboarding, the
+          research subscription may provide research reports, F&amp;O setups,
+          stated assumptions and risk parameters through an authorised
+          communication channel.
+        </p>
+        <div class="notice">
+          <strong>Important:</strong> A research setup is not a guarantee of
+          profit. Subscribers must independently understand the risks and make
+          their own decisions. Availability, fees, delivery channels and service
+          terms will be confirmed before enrolment.
+        </div>
+        <p>
+          Interested in a subscription or coaching? Use the contact section
+          below to enquire about current availability and terms.
+        </p>
+        <a class="button" href="#contact">Enquire About Services</a>
+      </div>
+    </section>
+
+    <section id="calculator">
+      <div class="container">
+        <div class="eyebrow">Interactive Tool</div>
+        <h2>Options Expiry Payoff Calculator</h2>
+        <p class="intro">
+          Estimate the expiry payoff of a single long or short call or put.
+          Enter the premium and quantity in the same units as your contract.
+          Brokerage, taxes, slippage and other charges are excluded.
+        </p>
+        <div class="calculator">
+          <div class="fields">
+            <div>
+              <label for="type">Option type</label>
+              <select id="type">
+                <option value="call">Call</option>
+                <option value="put">Put</option>
+              </select>
+            </div>
+            <div>
+              <label for="side">Position</label>
+              <select id="side">
+                <option value="long">Buy (Long)</option>
+                <option value="short">Sell (Short)</option>
+              </select>
+            </div>
+            <div>
+              <label for="strike">Strike price (₹)</label>
+              <input id="strike" type="number" min="0" step="any" value="24000">
+            </div>
+            <div>
+              <label for="premium">Premium per unit (₹)</label>
+              <input id="premium" type="number" min="0" step="any" value="150">
+            </div>
+            <div>
+              <label for="expiry">Expiry underlying price (₹)</label>
+              <input id="expiry" type="number" min="0" step="any" value="24200">
+            </div>
+            <div>
+              <label for="quantity">Total units</label>
+              <input id="quantity" type="number" min="1" step="1" value="1">
+            </div>
+          </div>
+          <button class="calc-button" type="button" onclick="calculatePayoff()">Calculate Payoff</button>
+          <div id="result" aria-live="polite">Enter your inputs and calculate the estimated expiry payoff.</div>
+          <p class="small">
+            This is an educational calculator, not a recommendation to enter a trade.
+            It models expiry intrinsic value and premium only.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="soft">
+      <div class="container">
+        <div class="eyebrow">Get in Touch</div>
+        <h2>Contact Pinnacle Securities Research</h2>
+        <p class="intro">
+          For research, coaching or subscription enquiries, contact us using
+          the professional email address below.
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:YOUR-PROFESSIONAL-EMAIL">YOUR-PROFESSIONAL-EMAIL</a>
+        </p>
+        <p class="small">
+          Replace the placeholder above with your actual professional email
+          before publishing. Do not publish private contact information unless
+          you intend it to be public.
+        </p>
+      </div>
+    </section>
+
+    <section id="disclosures">
+      <div class="container">
+        <h2>Risk Disclosures</h2>
+        <p>
+          Securities-market investments and derivatives trading are subject to
+          market risk. Options and futures can involve substantial losses.
+          Past performance, examples and educational illustrations do not
+          guarantee future results.
+        </p>
+        <p>
+          Research, recommendations, educational material and subscription
+          services must be provided only within the scope of applicable laws,
+          regulations and registration conditions. Nothing on this website
+          should be interpreted as a promise of returns or a guarantee of
+          investment outcomes.
+        </p>
+        <p>
+          Applicable registration disclosures, investor charter, complaint
+          handling details, terms, fees, privacy information and other required
+          disclosures should be added and kept current before offering services.
+        </p>
+        <p class="small">
+          This general website wording is not a certification of regulatory
+          compliance. Review the applicable SEBI requirements before launch.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>PINNACLE SECURITIES RESEARCH</strong>
+      <p class="small">Research · Risk Management · Education</p>
+      <p class="small">© <span id="year"></span> Pinnacle Securities Research. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function calculatePayoff() {
+      const type = document.getElementById("type").value;
+      const side = document.getElementById("side").value;
+      const strike = Number(document.getElementById("strike").value);
+      const premium = Number(document.getElementById("premium").value);
+      const expiry = Number(document.getElementById("expiry").value);
+      const quantity = Number(document.getElementById("quantity").value);
+      const result = document.getElementById("result");
+
+      if (![strike, premium, expiry, quantity].every(Number.isFinite) ||
+          strike < 0 || premium < 0 || expiry < 0 ||
+          quantity <= 0 || !Number.isInteger(quantity)) {
+        result.textContent = "Please enter valid non-negative prices and a positive whole-number quantity.";
+        return;
+      }
+
+      const intrinsic = type === "call"
+        ? Math.max(expiry - strike, 0)
+        : Math.max(strike - expiry, 0);
+
+      const perUnit = side === "long"
+        ? intrinsic - premium
+        : premium - intrinsic;
+
+      const total = perUnit * quantity;
+      const format = value => "₹" + value.toLocaleString("en-IN", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+
+      result.innerHTML =
+        "<strong>Intrinsic value per unit:</strong> " + format(intrinsic) + "<br>" +
+        "<strong>Expiry P&amp;L per unit:</strong> " + format(perUnit) + "<br>" +
+        "<strong>Total estimated expiry P&amp;L:</strong> " + format(total) +
+        "<br><span class='small'>Before brokerage, taxes, slippage and other charges.</span>";
+    }
+  </script>
+</body>
+</html>
